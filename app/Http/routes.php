@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::auth();
+Route::group(['middleware' => ['web']], function () {
+    //
+});
 
-Route::get('/home', 'HomeController@index');
+Route::group(['prefix' => 'lb-admin','middleware' => ['web','admin']], function () {
+    Route::auth();
+
+    Route::get('/', 'Admin\AdminHomeController@index');
+
+});
