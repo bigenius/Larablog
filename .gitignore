@@ -4,3 +4,11 @@
 Homestead.yaml
 Homestead.json
 .env
+public/build
+.DS_Store
+.idea
+npm-debug.log
+
+public/css
+public/fonts
+public/js

@@ -1,2 +1,7 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+$border-radius-small: 0;
+$border-radius-base: 0;
+$border-radius-large: 0;
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+$fa-font-path: "../../fonts";
+@import "node_modules/font-awesome/scss/font-awesome.scss";
