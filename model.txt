@@ -1,0 +1,60 @@
+
+models
+	post 
+		title
+		slug
+		body
+		belongstoMany -> tags
+		hasMany -> comments
+		belongsToMany ->categories
+		belongsTo -> user
+
+	page
+		title
+		slug
+		content
+
+	comment
+		from_user
+		body
+		belongsTo -> post
+		approved
+
+	category
+		title
+		belongstoMany -> post
+	
+	tag
+		title
+
+	user
+		name
+		email
+		
+	role
+
+public
+	page
+	post
+	comment(ext service?)
+	feed
+
+admin
+	pages
+	posts
+	comments
+	users
+	categories
+	menu
+	tags
+
+
+other
+	ckedit/tinymce
+	highlighjt.js
+	upload
+	image optimisation
+	cache (redis?)
+	minification/uglification (gulp/grunt build?)
+	cdn
+

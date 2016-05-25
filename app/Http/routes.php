@@ -12,15 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::group(['middleware' => ['web']], function () {
     //
 });
+Route::auth();
 
-Route::group(['prefix' => 'lb-admin','middleware' => ['web','admin']], function () {
-    Route::auth();
+Route::group(['prefix' => 'lb-admin','middleware' => ['web','auth']], function () {
+
 
     Route::get('/', 'Admin\AdminHomeController@index');
 
