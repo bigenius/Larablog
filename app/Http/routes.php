@@ -20,9 +20,11 @@ Route::group(['middleware' => ['web']], function () {
 });
 Route::auth();
 
+
 Route::group(['prefix' => 'lb-admin','middleware' => ['web','auth']], function () {
 
 
     Route::get('/', 'Admin\AdminHomeController@index');
+    Route::resource('post','PostController');
 
 });
