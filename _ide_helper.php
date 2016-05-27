@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.2.32 on 2016-05-27.
+ * Generated for Laravel 5.2.34 on 2016-05-27.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -1559,11 +1559,11 @@ namespace {
          * Set the current user.
          *
          * @param \Illuminate\Contracts\Auth\Authenticatable $user
-         * @return void 
+         * @return $this 
          * @static 
          */
         public static function setUser($user){
-            \Illuminate\Auth\SessionGuard::setUser($user);
+            return \Illuminate\Auth\SessionGuard::setUser($user);
         }
         
         /**
@@ -1645,6 +1645,17 @@ namespace {
          */
         public static function guest(){
             return \Illuminate\Auth\SessionGuard::guest();
+        }
+        
+        /**
+         * Determine if the current user is authenticated.
+         *
+         * @return \App\User 
+         * @throws \Illuminate\Auth\AuthenticationException
+         * @static 
+         */
+        public static function authenticate(){
+            return \Illuminate\Auth\SessionGuard::authenticate();
         }
         
     }
@@ -2777,6 +2788,20 @@ namespace {
         }
         
         /**
+         * Run a select statement against the database and returns a generator.
+         *
+         * @param string $query
+         * @param array $bindings
+         * @param bool $useReadPdo
+         * @return \Generator 
+         * @static 
+         */
+        public static function cursor($query, $bindings = array(), $useReadPdo = true){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::cursor($query, $bindings, $useReadPdo);
+        }
+        
+        /**
          * Run an insert statement against the database.
          *
          * @param string $query
@@ -3541,6 +3566,16 @@ namespace {
         }
         
         /**
+         * Get a generator for the given query.
+         *
+         * @return \Generator 
+         * @static 
+         */
+        public static function cursor(){
+            return \Illuminate\Database\Eloquent\Builder::cursor();
+        }
+        
+        /**
          * Chunk the results of the query.
          *
          * @param int $count
@@ -3662,6 +3697,18 @@ namespace {
          */
         public static function eagerLoadRelations($models){
             return \Illuminate\Database\Eloquent\Builder::eagerLoadRelations($models);
+        }
+        
+        /**
+         * Apply the callback's query changes if the given "value" is true.
+         *
+         * @param bool $value
+         * @param \Closure $callback
+         * @return $this 
+         * @static 
+         */
+        public static function when($value, $callback){
+            return \Illuminate\Database\Eloquent\Builder::when($value, $callback);
         }
         
         /**
@@ -4056,18 +4103,6 @@ namespace {
          */
         public static function crossJoin($table, $first = null, $operator = null, $second = null){
             return \Illuminate\Database\Query\Builder::crossJoin($table, $first, $operator, $second);
-        }
-        
-        /**
-         * Apply the callback's query changes if the given "value" is true.
-         *
-         * @param bool $value
-         * @param \Closure $callback
-         * @return \Illuminate\Database\Query\Builder 
-         * @static 
-         */
-        public static function when($value, $callback){
-            return \Illuminate\Database\Query\Builder::when($value, $callback);
         }
         
         /**
@@ -4542,6 +4577,17 @@ namespace {
          */
         public static function oldest($column = 'created_at'){
             return \Illuminate\Database\Query\Builder::oldest($column);
+        }
+        
+        /**
+         * Put the query's results in random order.
+         *
+         * @param string $seed
+         * @return $this 
+         * @static 
+         */
+        public static function inRandomOrder($seed = ''){
+            return \Illuminate\Database\Query\Builder::inRandomOrder($seed);
         }
         
         /**
@@ -11440,25 +11486,10 @@ namespace {
     }
 
 
+    class Helper extends \App\Helpers\Helper{
+        
+    }
 
 
 }
 
-namespace Illuminate\Support{
-    /**
-     * @method Fluent first()
-     * @method Fluent after($column)
-     * @method Fluent change()
-     * @method Fluent nullable()
-     * @method Fluent unsigned()
-     * @method Fluent unique()
-     * @method Fluent index()
-     * @method Fluent primary()
-     * @method Fluent default($value)
-     * @method Fluent onUpdate($value)
-     * @method Fluent onDelete($value)
-     * @method Fluent references($value)
-     * @method Fluent on($value)
-     */
-    class Fluent {}
-}

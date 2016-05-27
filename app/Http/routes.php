@@ -15,16 +15,16 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::group(['middleware' => ['web']], function () {
-    //
-});
+
 Route::auth();
 
 
-Route::group(['prefix' => 'lb-admin','middleware' => ['web','auth']], function () {
+Route::group(['prefix' => 'lb-admin','middleware' => ['auth']], function () {
 
 
     Route::get('/', 'Admin\AdminHomeController@index');
     Route::resource('post','PostController');
 
 });
+
+Route::get('{year}/{month}/{slug}', 'PostController@show')->where('year', '[0-9]+')->where('month', '[0-9]+');

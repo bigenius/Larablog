@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Post;
+use App\Tag;
+use Symfony\Component\Debug\Debug;
+
 
 class PostController extends Controller
 {
@@ -28,7 +32,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('admin.post.create', ['categories' => $categories]);
     }
 
     /**
@@ -39,7 +44,33 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = $request->user();
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'body' => 'required',
+        ]);
+
+        $post = new Post([
+            'title' => $request->title,
+            'body' => $request->body,
+            ]);
+        $user->posts()->save($post);
+        $categories = $request->categories;
+        if($request->has('categories') && $categories->count > 0) {
+            $post->categories()->sync($categories);
+        }
+
+        if ($request->has('tags')) {
+            $tagnames = explode(',', $request->tags);
+            $dbtags = Tag::getTagId($tagnames);
+            if (is_array($dbtags)) {
+                $post->tags()->sync($dbtags);
+            } elseif (is_string($dbtags)) {
+                return Redirect::route('lb-admin.post.create')->with('message', array('content' => 'The tag ' . $dbtags . ' is not valid.', 'class' => 'danger'))->withInput();
+            }
+        }
+
+        return redirect()->back()->with(['info' => 'Check created!', 'status' => 'success' ]);
     }
 
     /**
@@ -48,9 +79,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($year,$month,$slug)
     {
-
+        $post = Post::findBySlugOrId($slug);
+        
+        return view('post.show', ['post' => $post]);
     }
 
     /**
