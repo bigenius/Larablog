@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Validator;
 
 class Tag extends Model
 {
@@ -21,6 +22,7 @@ class Tag extends Model
     {
         $returnarray = array();
         foreach( $tagnames as $tag) {
+
             $tag = trim($tag);
             if($tag) {
                 $t = false;
@@ -28,9 +30,9 @@ class Tag extends Model
                 $num = $thetag->count();
                 if ($num < 1) {
                     $t = new Tag;
-                    $t->name = $tag;
+                    $t->title = $tag;
                     if (!Tag::validate($t->toArray())) {
-                        return $t->name;
+                        return $t->title;
                     }
                     $t->save();
                     $returnarray[] = $t->id;
@@ -40,5 +42,18 @@ class Tag extends Model
             }
         }
         return $returnarray;
+    }
+
+    public static $rules = array(
+        'title'=>'required|unique:tags|min:2'
+    );
+
+    static function validate($tag)
+    {
+        $validator = Validator::make($tag, Tag::$rules);
+        if( $validator->passes() ){
+            return true;
+        }
+        return false;
     }
 }

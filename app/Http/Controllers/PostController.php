@@ -56,7 +56,7 @@ class PostController extends Controller
             ]);
         $user->posts()->save($post);
         $categories = $request->categories;
-        if($request->has('categories') && $categories->count > 0) {
+        if($request->has('categories') && count($categories)> 0) {
             $post->categories()->sync($categories);
         }
 
@@ -70,7 +70,7 @@ class PostController extends Controller
             }
         }
 
-        return redirect()->back()->with(['info' => 'Check created!', 'status' => 'success' ]);
+        return redirect()->back()->with(['info' => 'Post created!', 'status' => 'success' ]);
     }
 
     /**
@@ -95,8 +95,11 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+        $categories = Category::all();
+        $tags = $post->tags->map( function($tag){return $tag->title;});
+        $tagnames = implode(", ",$tags->toArray());
 
-        return view('admin.post.edit', ['post' => $post]);
+        return view('admin.post.edit', ['post' => $post, 'categories' => $categories, 'tags' => $tagnames]);
     }
 
     /**
@@ -108,7 +111,32 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'body' => 'required',
+        ]);
+        $post = Post::find($id);
+
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->save();
+
+        $categories = $request->categories;
+        if($request->has('categories') && count($categories) > 0) {
+            $post->categories()->sync($categories);
+        }
+
+        if ($request->has('tags')) {
+            $tagnames = explode(',', $request->tags);
+            $dbtags = Tag::getTagId($tagnames);
+            if (is_array($dbtags)) {
+                $post->tags()->sync($dbtags);
+            } elseif (is_string($dbtags)) {
+                return Redirect::route('lb-admin.post.edit')->with('message', array('content' => 'The tag ' . $dbtags . ' is not valid.', 'class' => 'danger'))->withInput();
+            }
+        }
+
+        return redirect()->back()->with(['info' => 'Post updated!', 'status' => 'success' ]);
     }
 
     /**
