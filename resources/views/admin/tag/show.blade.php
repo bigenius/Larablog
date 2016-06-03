@@ -16,8 +16,8 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading clearfix">
-                        Posts
-                        <a class="btn btn-success btn-sm btn-create pull-right" href="{{route('lb-admin.post.create')}}">New</a><br>
+                        Posts in {{$tag->title}}
+                        <a class="btn btn-success btn-sm btn-create pull-right" href="{{route('lb-admin.tag.create')}}">New</a><br>
                     </div>
 
                     <div class="panel-body">
@@ -31,7 +31,8 @@
                             <th>Date</th>
                             </thead>
                             <tbody>
-                            @foreach($posts as $post)
+
+                            @foreach($tag->posts as $post)
                                 <tr>
                                     <td><a href="{{route('lb-admin.post.edit', [$post->id]) }}">{{$post->title}}</a></td>
                                     <td>{{$post->author->name}}</td>

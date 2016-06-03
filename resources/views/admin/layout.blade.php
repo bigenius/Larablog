@@ -47,6 +47,8 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/lb-admin/post') }}">Posts</a></li>
+                    <li><a href="{{ url('/lb-admin/category') }}">Categories</a></li>
+                    <li><a href="{{ url('/lb-admin/tag') }}">Tags</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

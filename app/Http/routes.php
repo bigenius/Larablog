@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'HomeController@index');
 
 
 Route::auth();
@@ -24,6 +22,8 @@ Route::group(['prefix' => 'lb-admin','middleware' => ['auth']], function () {
 
     Route::get('/', 'Admin\AdminHomeController@index');
     Route::resource('post','PostController');
+    Route::resource('category','Admin\CategoryController');
+    Route::resource('tag','Admin\TagController');
 
 });
 
