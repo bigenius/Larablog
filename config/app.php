@@ -162,6 +162,8 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         'Cviebrock\EloquentSluggable\SluggableServiceProvider',
+        Mews\Purifier\PurifierServiceProvider::class,
+        Midium\Ckeditor\ServiceProvider::class,
     ],
 
     /*
@@ -209,7 +211,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Helper' => App\Helpers\Helper::class,
-
+        'Purifier' => Mews\Purifier\Facades\Purifier::class,
 
     ],
 

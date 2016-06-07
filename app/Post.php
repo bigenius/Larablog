@@ -17,6 +17,14 @@ class Post extends Model implements SluggableInterface
 
     protected $guarded = [];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::updating(function(Post $post) {
+            $post->body = clean($post->body);
+        });
+    }
 
     public function comments()
     {

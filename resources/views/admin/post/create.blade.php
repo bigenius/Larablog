@@ -1,5 +1,14 @@
 @extends('admin.layout')
 
+@push('scripts')
+<script src="/vendor/midium/laravel-ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'body', {
+        extraPlugins: 'codesnippet'
+    });
+</script>
+@endpush
+
 @section('content')
     <div class="container">
         @if (session('status'))

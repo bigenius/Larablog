@@ -1,5 +1,14 @@
 @extends('admin.layout')
 
+@push('scripts')
+<script src="/vendor/midium/laravel-ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'body', {
+        extraPlugins: 'codesnippet'
+    });
+</script>
+@endpush
+
 @section('content')
     <div class="container">
         @if (session('status'))
@@ -43,7 +52,7 @@
 
                                 <div class="col-md-12">
 
-                                    <textarea class="form-control" rows="10" name="body" >{{ $post->body }}</textarea>
+                                    <textarea class="form-control" rows="10" name="body" >{!! $post->body !!} </textarea>
                                     @if ($errors->has('body'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('body') }}</strong>
@@ -102,6 +111,6 @@
                 </div>
             </div>
         </div>
-
+            {!! $post->body !!}
     </div>
 @endsection

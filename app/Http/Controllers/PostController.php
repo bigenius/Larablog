@@ -70,7 +70,7 @@ class PostController extends Controller
             }
         }
 
-        return redirect()->back()->with(['info' => 'Post created!', 'status' => 'success' ]);
+        return redirect()->route('lb-admin.post.index')->with(['info' => 'Post created!', 'status' => 'success' ]);
     }
 
     /**
