@@ -5,3 +5,7 @@ $border-radius-large: 0;
 
 $fa-font-path: "../../fonts";
 @import "node_modules/font-awesome/scss/font-awesome.scss";
+
+pre {
+  padding:0;
+}

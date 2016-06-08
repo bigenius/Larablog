@@ -12,3 +12,5 @@ npm-debug.log
 public/css
 public/fonts
 public/js
+public/upload/images
+public/upload/files

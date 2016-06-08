@@ -164,6 +164,8 @@ return [
         'Cviebrock\EloquentSluggable\SluggableServiceProvider',
         Mews\Purifier\PurifierServiceProvider::class,
         Midium\Ckeditor\ServiceProvider::class,
+        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -212,7 +214,7 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Helper' => App\Helpers\Helper::class,
         'Purifier' => Mews\Purifier\Facades\Purifier::class,
-
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

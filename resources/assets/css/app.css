@@ -7903,4 +7903,7 @@ button.close {
   overflow: visible;
   clip: auto; }
 
+pre {
+  padding: 0; }
+
 /*# sourceMappingURL=app.css.map */
