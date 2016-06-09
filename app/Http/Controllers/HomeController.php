@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Post;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -15,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-
+        parent::__construct();
     }
 
     /**
@@ -25,6 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         $posts = Post::orderBy('created_at', 'desc')->simplePaginate(15);
         return view('home', ['posts' => $posts]);
     }
