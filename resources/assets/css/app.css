@@ -5,6 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -7903,7 +7904,183 @@ button.close {
   overflow: visible;
   clip: auto; }
 
+.navbar-inverse .badge {
+  background-color: #fff;
+  color: #337ab7; }
+
+body {
+  -webkit-font-smoothing: antialiased; }
+
+.text-primary,
+.text-primary:hover {
+  color: #337ab7; }
+
+.text-success,
+.text-success:hover {
+  color: #5cb85c; }
+
+.text-danger,
+.text-danger:hover {
+  color: #d9534f; }
+
+.text-warning,
+.text-warning:hover {
+  color: #f0ad4e; }
+
+.text-info,
+.text-info:hover {
+  color: #5bc0de; }
+
+table a:not(.btn),
+.table a:not(.btn) {
+  text-decoration: underline; }
+
+table .dropdown-menu a,
+.table .dropdown-menu a {
+  text-decoration: none; }
+
+table .success,
+table .warning,
+table .danger,
+table .info,
+.table .success,
+.table .warning,
+.table .danger,
+.table .info {
+  color: #fff; }
+  table .success a,
+  table .warning a,
+  table .danger a,
+  table .info a,
+  .table .success a,
+  .table .warning a,
+  .table .danger a,
+  .table .info a {
+    color: #fff; }
+
+.has-warning .help-block,
+.has-warning .control-label,
+.has-warning .radio,
+.has-warning .checkbox,
+.has-warning .radio-inline,
+.has-warning .checkbox-inline,
+.has-warning.radio label,
+.has-warning.checkbox label,
+.has-warning.radio-inline label,
+.has-warning.checkbox-inline label,
+.has-warning .form-control-feedback {
+  color: #f0ad4e; }
+
+.has-warning .form-control,
+.has-warning .form-control:focus,
+.has-warning .input-group-addon {
+  border: 1px solid #f0ad4e; }
+
+.has-error .help-block,
+.has-error .control-label,
+.has-error .radio,
+.has-error .checkbox,
+.has-error .radio-inline,
+.has-error .checkbox-inline,
+.has-error.radio label,
+.has-error.checkbox label,
+.has-error.radio-inline label,
+.has-error.checkbox-inline label,
+.has-error .form-control-feedback {
+  color: #d9534f; }
+
+.has-error .form-control,
+.has-error .form-control:focus,
+.has-error .input-group-addon {
+  border: 1px solid #d9534f; }
+
+.has-success .help-block,
+.has-success .control-label,
+.has-success .radio,
+.has-success .checkbox,
+.has-success .radio-inline,
+.has-success .checkbox-inline,
+.has-success.radio label,
+.has-success.checkbox label,
+.has-success.radio-inline label,
+.has-success.checkbox-inline label,
+.has-success .form-control-feedback {
+  color: #5cb85c; }
+
+.has-success .form-control,
+.has-success .form-control:focus,
+.has-success .input-group-addon {
+  border: 1px solid #5cb85c; }
+
+.nav-pills > li > a {
+  border-radius: 0; }
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background-image: none; }
+
+.close {
+  text-decoration: none;
+  text-shadow: none;
+  opacity: 0.4; }
+  .close:hover, .close:focus {
+    opacity: 1; }
+
+.alert {
+  border: none; }
+  .alert .alert-link {
+    text-decoration: underline;
+    color: #fff; }
+
+.label {
+  border-radius: 0; }
+
+.progress {
+  height: 8px;
+  box-shadow: none; }
+  .progress .progress-bar {
+    font-size: 8px;
+    line-height: 8px; }
+
+.panel-heading, .panel-footer {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0; }
+
+.panel-default .close {
+  color: #333333; }
+
+a.list-group-item-success.active {
+  background-color: #dff0d8; }
+
+a.list-group-item-success.active:hover, a.list-group-item-success.active:focus {
+  background-color: #d0e9c6; }
+
+a.list-group-item-warning.active {
+  background-color: #fcf8e3; }
+
+a.list-group-item-warning.active:hover, a.list-group-item-warning.active:focus {
+  background-color: #faf2cc; }
+
+a.list-group-item-danger.active {
+  background-color: #f2dede; }
+
+a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
+  background-color: #ebcccc; }
+
+.modal .close {
+  color: #333333; }
+
+.popover {
+  color: #333333; }
+
 pre {
   padding: 0; }
+
+.cke_ltr .cke_button:first-child, .cke_rtl .cke_button:last-child {
+  border-radius: 0 !important; }
+
+a.cke_button_off:hover, a.cke_button_off:focus, a.cke_button_off:active, a.cke_button_disabled:hover, a.cke_button_disabled:focus, a.cke_button_disabled:active {
+  background-image: none !important;
+  background: #f2f2f2 !important; }
 
 /*# sourceMappingURL=app.css.map */

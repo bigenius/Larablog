@@ -81,8 +81,8 @@ class PostController extends Controller
      */
     public function show($year,$month,$slug)
     {
-        $post = Post::findBySlugOrId($slug);
-        
+        $totalslug = $year .'/'.$month.'/'.$slug;
+        $post = Post::where('slug',$totalslug)->first();
         return view('post.show', ['post' => $post]);
     }
 

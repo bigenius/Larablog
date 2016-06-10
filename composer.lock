@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e46840ece0e5965cfb1d3eef22ad3608",
-    "content-hash": "da6bba527e45efc15b12c968ac8f91f3",
+    "hash": "cb7293767e41812468f84b72928fe1ca",
+    "content-hash": "d5ee5412e1527ccf4bff69ed0e2b8ac1",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -243,33 +243,34 @@
         },
         {
             "name": "cviebrock/eloquent-sluggable",
-            "version": "3.1.4",
+            "version": "4.0.0-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cviebrock/eloquent-sluggable.git",
-                "reference": "5d40a334ec02c32b9c7d33f9023b5da75eb27d7d"
+                "reference": "e934a98e17896d0a7c0861e00189cbfff7260939"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cviebrock/eloquent-sluggable/zipball/5d40a334ec02c32b9c7d33f9023b5da75eb27d7d",
-                "reference": "5d40a334ec02c32b9c7d33f9023b5da75eb27d7d",
+                "url": "https://api.github.com/repos/cviebrock/eloquent-sluggable/zipball/e934a98e17896d0a7c0861e00189cbfff7260939",
+                "reference": "e934a98e17896d0a7c0861e00189cbfff7260939",
                 "shasum": ""
             },
             "require": {
                 "cocur/slugify": "^1.1",
-                "illuminate/config": "^5.0",
-                "illuminate/database": "^5.0",
-                "illuminate/support": "^5.0",
+                "illuminate/config": "~5.1|~5.2",
+                "illuminate/database": "~5.1|~5.2",
+                "illuminate/support": "~5.1|~5.2",
                 "php": ">=5.5"
             },
             "require-dev": {
+                "mockery/mockery": "^0.9.4",
                 "orchestra/testbench": "^3.0",
                 "phpunit/phpunit": "^4.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Cviebrock\\EloquentSluggable\\": "src/"
+                    "Cviebrock\\EloquentSluggable\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -289,7 +290,7 @@
                 "laravel",
                 "slug"
             ],
-            "time": "2016-01-03 21:24:10"
+            "time": "2016-06-01 21:47:29"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -3742,6 +3743,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "cviebrock/eloquent-sluggable": 20,
         "midium/laravel-ckeditor": 20
     },
     "prefer-stable": false,

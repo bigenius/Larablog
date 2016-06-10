@@ -2,27 +2,26 @@
 
 @section('content')
     <div class="container">
-        @if (session('status'))
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="alert alert-{{ session('status') }} alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        {{ session('info') }}
-                    </div>
-                </div>
-            </div>
-        @endif
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Edit <strong>{{$post->title}}</strong>
+                <article id="article-{{$post->id}}">
+                    <h2 class="post-title">{{$post->title}}</h2>
+                    <div class="post-body">
+                        {!! $post->body !!}
                     </div>
+                    <div class="post-meta">
+                        <ul>
+                            <li class="cp-date-single"><span class="fa fa-clock-o"></span>{{$post->updated_at->diffForHumans()}}</li>
+                            <li class="category"><span class="fa fa-folder-o"></span>
+                                @foreach($post->categories as $category)
+                                    <a href="cat/{{$category->title}}">{{$category->title}}</a>
+                                    {{Helper::appendComma($post->categories,$category)}}
+                                @endforeach
+                            </li>
 
-                    <div class="panel-body">
-                        {{$post->body}}
+                        </ul>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </div>

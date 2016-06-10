@@ -91,7 +91,7 @@ return [
      * means slugs are not updated.
      */
 
-    'on_update' => false,
+    'on_update' => true,
 
     /**
      * An array of slug names that can never be used for this model,

@@ -3,24 +3,37 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Cviebrock\EloquentSluggable\SluggableInterface;
-use Cviebrock\EloquentSluggable\SluggableTrait;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Carbon\Carbon;
 
-class Post extends Model implements SluggableInterface
+class Post extends Model
 {
-    use SluggableTrait;
+    use Sluggable;
 
-    protected $sluggable = [
-        'build_from' => 'title',
-        'save_to'    => 'slug',
-    ];
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title',
+                'method' => function ($string, $separator) {
+                    logger($string);
+                    $a = strtolower(preg_replace('/[^a-z]+/i', $separator, $string));
+                    logger($a);
+                    return Carbon::now()->year. '/' . Carbon::now()->month . '/'. $a;
+                },
+            ]
+        ];
+    }
 
+    
     protected $guarded = [];
 
     protected static function boot()
     {
+
         parent::boot();
 
+        // Clean the article body from any nasty html tags
         static::updating(function(Post $post) {
             $post->body = clean($post->body);
         });
@@ -45,4 +58,6 @@ class Post extends Model implements SluggableInterface
     {
         return $this->belongsToMany('App\Tag');
     }
+
+
 }

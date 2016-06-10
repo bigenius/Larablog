@@ -6,6 +6,18 @@ $border-radius-large: 0;
 $fa-font-path: "../../fonts";
 @import "node_modules/font-awesome/scss/font-awesome.scss";
 
+@import "variables";
+@import "bootswatch";
+
 pre {
   padding:0;
+}
+
+.cke_ltr .cke_button:first-child, .cke_rtl .cke_button:last-child {
+  border-radius: 0!important;
+}
+
+a.cke_button_off:hover, a.cke_button_off:focus, a.cke_button_off:active, a.cke_button_disabled:hover, a.cke_button_disabled:focus, a.cke_button_disabled:active {
+  background-image: none!important;
+  background: #f2f2f2!important;
 }
