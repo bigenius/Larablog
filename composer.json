@@ -12,7 +12,9 @@
         "cviebrock/eloquent-sluggable": "~4.0@dev",
         "mews/purifier": "^2.0",
         "midium/laravel-ckeditor": "dev-master",
-        "unisharp/laravel-filemanager": "^1.5"
+        "unisharp/laravel-filemanager": "^1.5",
+        "predis/predis": "~1.0",
+        "spatie/laravel-responsecache": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
