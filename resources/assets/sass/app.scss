@@ -3,7 +3,7 @@ $border-radius-base: 0;
 $border-radius-large: 0;
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-$fa-font-path: "../../fonts";
+//$fa-font-path: "../../fonts";
 @import "node_modules/font-awesome/scss/font-awesome.scss";
 
 @import "variables";
@@ -20,4 +20,17 @@ pre {
 a.cke_button_off:hover, a.cke_button_off:focus, a.cke_button_off:active, a.cke_button_disabled:hover, a.cke_button_disabled:focus, a.cke_button_disabled:active {
   background-image: none!important;
   background: #f2f2f2!important;
+}
+
+.input-group-below {
+  width:100%;
+  button {
+    border-top:0;
+  }
+}
+aside {
+  .well {
+    border-left:0;
+    border-right:0;
+  }
 }

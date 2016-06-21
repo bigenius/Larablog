@@ -5742,8 +5742,8 @@ button.close {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../../fonts/fontawesome-webfont.eot?v=4.6.3");
-  src: url("../../fonts/fontawesome-webfont.eot?#iefix&v=4.6.3") format("embedded-opentype"), url("../../fonts/fontawesome-webfont.woff2?v=4.6.3") format("woff2"), url("../../fonts/fontawesome-webfont.woff?v=4.6.3") format("woff"), url("../../fonts/fontawesome-webfont.ttf?v=4.6.3") format("truetype"), url("../../fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular") format("svg");
+  src: url("../fonts/fontawesome-webfont.eot?v=4.6.3");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.6.3") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.6.3") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.6.3") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.6.3") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -8082,5 +8082,14 @@ pre {
 a.cke_button_off:hover, a.cke_button_off:focus, a.cke_button_off:active, a.cke_button_disabled:hover, a.cke_button_disabled:focus, a.cke_button_disabled:active {
   background-image: none !important;
   background: #f2f2f2 !important; }
+
+.input-group-below {
+  width: 100%; }
+  .input-group-below button {
+    border-top: 0; }
+
+aside .well {
+  border-left: 0;
+  border-right: 0; }
 
 /*# sourceMappingURL=app.css.map */

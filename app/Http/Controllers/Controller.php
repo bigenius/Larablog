@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 use Carbon\Carbon;
 
+
 class Controller extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
@@ -16,6 +17,8 @@ class Controller extends BaseController
     public function __construct()
     {
         Carbon::setLocale(config('app.locale'));
+        $name = \Route::current()->getName();
+        \View::share('routeName', $name);
     }
 
 }

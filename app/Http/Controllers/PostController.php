@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Post;
 use App\Tag;
 use Symfony\Component\Debug\Debug;
-
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Carbon\Carbon;
 
 class PostController extends Controller
 {
@@ -54,6 +54,14 @@ class PostController extends Controller
             'title' => $request->title,
             'body' => $request->body,
             ]);
+
+        if ($request->has('published_at')) {
+            $published_at = $request->published_at;
+        } else {
+            $published_at = Carbon::now();
+        }
+        $post->published_at = $published_at;
+
         $user->posts()->save($post);
         $categories = $request->categories;
         if($request->has('categories') && count($categories)> 0) {
@@ -66,7 +74,7 @@ class PostController extends Controller
             if (is_array($dbtags)) {
                 $post->tags()->sync($dbtags);
             } elseif (is_string($dbtags)) {
-                return Redirect::route('lb-admin.post.create')->with('message', array('content' => 'The tag ' . $dbtags . ' is not valid.', 'class' => 'danger'))->withInput();
+                return redirect()->route('lb-admin.post.create')->with('message', array('content' => 'The tag ' . $dbtags . ' is not valid.', 'class' => 'danger'))->withInput();
             }
         }
 
@@ -116,9 +124,15 @@ class PostController extends Controller
             'body' => 'required',
         ]);
         $post = Post::find($id);
-
+        $post->slug = null;
         $post->title = $request->title;
         $post->body = $request->body;
+        if ($request->has('published_at')) {
+            $published_at = $request->published_at;
+        } else {
+            $published_at = Carbon::now();
+        }
+        $post->published_at = $published_at;
         $post->save();
 
         $categories = $request->categories;
@@ -132,7 +146,7 @@ class PostController extends Controller
             if (is_array($dbtags)) {
                 $post->tags()->sync($dbtags);
             } elseif (is_string($dbtags)) {
-                return Redirect::route('lb-admin.post.edit')->with('message', array('content' => 'The tag ' . $dbtags . ' is not valid.', 'class' => 'danger'))->withInput();
+                return redirect()->route('lb-admin.post.edit')->with('message', array('content' => 'The tag ' . $dbtags . ' is not valid.', 'class' => 'danger'))->withInput();
             }
         }
 
@@ -148,5 +162,15 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function previewSlug(Request $request)
+    {
+        $this->validate($request, [
+            'title' => 'required|max:255'
+        ]);
+        $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
+        return \Response::json($slug);
+
     }
 }

@@ -53,7 +53,7 @@ sk.js      Found: 49 Missing: 17
 sl.js      Found: 48 Missing: 18
 sr-latn.js Found: 40 Missing: 26
 sr.js      Found: 40 Missing: 26
-sv.js      Found: 62 Missing: 4
+moments-sv.js      Found: 62 Missing: 4
 th.js      Found: 40 Missing: 26
 tr.js      Found: 66 Missing: 0
 ug.js      Found: 66 Missing: 0

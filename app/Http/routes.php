@@ -21,6 +21,7 @@ Route::group(['prefix' => 'lb-admin','middleware' => ['auth']], function () {
 
 
     Route::get('/', 'Admin\AdminHomeController@index');
+    Route::post('post/previewslug', 'PostController@previewSlug')->name('previewslug');
     Route::resource('post','PostController');
     Route::resource('category','Admin\CategoryController');
     Route::resource('tag','Admin\TagController');

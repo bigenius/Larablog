@@ -17,7 +17,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading clearfix">
                         Posts
-                        <a class="btn btn-success btn-sm btn-create pull-right" href="{{route('lb-admin.post.create')}}">New</a><br>
+                        <a class="btn btn-success btn-sm btn-create pull-right" href="{{route('lb-admin.post.create')}}"><i class="fa fa-btn fa-plus"></i>New</a><br>
                     </div>
 
                     <div class="panel-body">
