@@ -22,6 +22,8 @@ Route::group(['prefix' => 'lb-admin','middleware' => ['auth']], function () {
 
     Route::get('/', 'Admin\AdminHomeController@index');
     Route::get('post/destroy/{id}', 'PostController@destroy')->name('destroypost');
+    Route::get('post/deleted/{id}', 'PostController@restore')->name('restorepost');
+    Route::get('post/deleted', 'PostController@deleted')->name('deletedposts');
     Route::post('post/previewslug', 'PostController@previewSlug')->name('previewslug');
     Route::resource('post','PostController');
     Route::resource('category','Admin\CategoryController');

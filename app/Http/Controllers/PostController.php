@@ -182,4 +182,17 @@ class PostController extends Controller
         return \Response::json($slug);
 
     }
+
+    public function deleted()
+    {
+        $posts = Post::onlyTrashed()->orderBy('deleted_at')->get();
+
+        return view('admin.post.deleted', ['posts' => $posts]);
+    }
+
+    public function restore($id)
+    {
+        Post::onlyTrashed()->where('id', $id)->restore();
+        return redirect()->route('lb-admin.post.index')->with(['info' => 'Post restored!', 'status' => 'success' ]);
+    }
 }

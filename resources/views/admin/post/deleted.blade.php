@@ -16,8 +16,7 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading clearfix">
-                        Posts
-                        <a class="btn btn-success btn-sm btn-create pull-right" href="{{route('lb-admin.post.create')}}"><i class="fa fa-btn fa-plus"></i>New</a><br>
+                        Deleted posts
                     </div>
 
                     <div class="panel-body">
@@ -28,7 +27,8 @@
                             <th>Categories</th>
                             <th>Tags</th>
                             <th><i class="fa fa-comment-o" aria-hidden="true"></i></th>
-                            <th>Date</th>
+                            <th>Deleted</th>
+                            <th>Restore</th>
                             </thead>
                             <tbody>
                             @foreach($posts as $post)
@@ -49,14 +49,15 @@
                                         @endforeach
                                     </td>
                                     <td>{{$post->comments->count()}}</td>
-                                    <td>{{$post->getLatestDate()}}<br><span class="text-muted small"><em>{{ trans('strings.'.$post->date_type) }} </em></span></td>
+                                    <td>{{$post->deleted_at}}</td>
+                                    <td><a href="{{ route('restorepost',$post->id) }}"><i class="fa fa-undo"></i> </a></td>
                                 </tr>
+
                             @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <p><a href="{{ route('deletedposts') }}">Deleted posts</a></p>
             </div>
         </div>
     </div>
