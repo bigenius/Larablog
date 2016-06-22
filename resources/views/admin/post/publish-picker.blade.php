@@ -9,6 +9,7 @@
     });
     $("#confirmDate").on('click', function() {
         var pDate = $("#publishDate").val();
+
         $("#publishDateShow").html( (pDate?pDate:'now'));
         $("#collapsePublish").collapse('hide');
     });
@@ -19,11 +20,11 @@
 
 <div class="form-group">
     Publish: <a class="" role="button" data-toggle="collapse" href="#collapsePublish" aria-expanded="false" aria-controls="collapseExample">
-        <span id="publishDateShow">now</span>
+        <span id="publishDateShow">{{$post->published_at or 'now'}}</span>
     </a>
     <div class="collapse" id="collapsePublish">
         <div class='input-group date' id='publishPicker'>
-            <input id="published_at" name="publishDate" type='text' class="form-control"/>
+            <input id="publishDate" name="published_at" type='text' class="form-control" value="{{$post->published_at or ''}}"/>
             <span class="input-group-addon">
                 <span class="fa fa-calendar-check-o"></span>
             </span>

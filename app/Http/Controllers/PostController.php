@@ -20,7 +20,14 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->get();
+        $custom_order_by = "CASE
+                              WHEN published_at IS NULL OR updated_at >= published_at 
+                                  THEN  updated_at
+                              ELSE  published_at
+                            END 
+                            DESC";
+        //$posts = Post::orderBy('created_at', 'desc')->get();
+        $posts = Post::orderByRaw($custom_order_by)->get();
 
         return view('admin.post.list', ['posts' => $posts]);
     }

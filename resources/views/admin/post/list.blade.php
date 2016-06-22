@@ -49,7 +49,7 @@
                                         @endforeach
                                     </td>
                                     <td>{{$post->comments->count()}}</td>
-                                    <td>{{$post->updated_at->diffForHumans()}}</td>
+                                    <td>{{$post->getLatestDate()}}<br><span class="text-muted small"><em>{{ trans('strings.'.$post->date_type) }} </em></span></td>
                                 </tr>
                             @endforeach
                             </tbody>
