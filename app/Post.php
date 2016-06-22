@@ -8,16 +8,17 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Symfony\Component\Debug\Debug;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class Post extends Model
 {
     use Sluggable;
-
+    use SoftDeletes;
 
 
     protected $guarded = [];
-
+    protected $dates = ['deleted_at','updated_at','created_at','published_at'];
     public $date_type;
 
     protected static function boot()

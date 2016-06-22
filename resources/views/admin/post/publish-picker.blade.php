@@ -3,6 +3,7 @@
     $(function () {
         $('#publishPicker').datetimepicker({
             locale: 'sv',
+            format: 'YYYY-MM-DD HH:mm:ss'
         });
     $("#cancelDate").on('click', function() {
         $("#collapsePublish").collapse('hide');

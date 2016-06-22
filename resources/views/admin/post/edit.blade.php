@@ -137,7 +137,12 @@
                                                 <button type="submit" class="btn btn-primary pull-right">
                                                     <i class="fa fa-btn fa-check"></i>Save
                                                 </button>
-                                                <a href class="btn btn-danger pull-left">
+                                                <a href="{{ route('destroypost', [$post->id]) }}" class="btn btn-danger pull-left confirmable"
+                                                   data-confirm-title="{{ trans('strings.confirm_title') }}"
+                                                   data-confirm-message="{{ trans('strings.confirm_delete') }}"
+                                                   data-confirm-ok="{{ trans('strings.delete') }}"
+                                                   data-confirm-cancel="{{ trans('strings.confirm_cancel') }}"
+                                                   data-confirm-style="danger">
                                                     <i class="fa fa-btn fa-trash"></i>Delete
                                                 </a>
                                             </div>
