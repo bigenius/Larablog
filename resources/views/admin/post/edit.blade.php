@@ -135,16 +135,29 @@
                                         <div class="row form-group ">
                                             <div class="col-md-12  well well-sm">
                                                 <button type="submit" class="btn btn-primary pull-right">
-                                                    <i class="fa fa-btn fa-check"></i>Save
+                                                    <i class="fa fa-btn fa-check"></i>{{ trans('strings.save') }}
                                                 </button>
-                                                <a href="{{ route('destroypost', [$post->id]) }}" class="btn btn-danger pull-left confirmable"
-                                                   data-confirm-title="{{ trans('strings.confirm_title') }}"
-                                                   data-confirm-message="{{ trans('strings.confirm_delete') }}"
-                                                   data-confirm-ok="{{ trans('strings.delete') }}"
-                                                   data-confirm-cancel="{{ trans('strings.confirm_cancel') }}"
-                                                   data-confirm-style="danger">
-                                                    <i class="fa fa-btn fa-trash"></i>Delete
-                                                </a>
+                                                @if ($post->trashed())
+                                                    <a href="{{ route('restorepost', [$post->id]) }}" class="btn btn-danger pull-left confirmable"
+                                                       data-confirm-title="{{ trans('strings.confirm_title') }}"
+                                                       data-confirm-message="{{ trans('strings.confirm_restore') }}"
+                                                       data-confirm-ok="{{ trans('strings.restore') }}"
+                                                       data-confirm-cancel="{{ trans('strings.confirm_cancel') }}"
+                                                       data-confirm-style="danger">
+                                                        <i class="fa fa-btn fa-trash"></i>{{ trans('strings.restore') }}
+                                                    </a>
+
+                                                @else
+
+                                                    <a href="{{ route('destroypost', [$post->id]) }}" class="btn btn-danger pull-left confirmable"
+                                                       data-confirm-title="{{ trans('strings.confirm_title') }}"
+                                                       data-confirm-message="{{ trans('strings.confirm_delete') }}"
+                                                       data-confirm-ok="{{ trans('strings.delete') }}"
+                                                       data-confirm-cancel="{{ trans('strings.confirm_cancel') }}"
+                                                       data-confirm-style="danger">
+                                                        <i class="fa fa-btn fa-trash"></i>{{ trans('strings.delete') }}
+                                                    </a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

@@ -9,4 +9,7 @@ return [
     'confirm_delete'    => 'Är det säkert att du vill radera objektet?',
     'confirm_ok'        => 'Ja',
     'confirm_cancel'    => 'Avbryt',
+    'save'              => 'Spara',
+    'restore'           => 'Återställ',
+    'confirm_restore'   => 'Är det säkert att du vill radera objektet? <br>Om det är publicerat kommer det att synas omedelbart.',
 ];

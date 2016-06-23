@@ -109,7 +109,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
+        //$post = Post::find($id)->withTrashed();
+        $post = Post::withTrashed()
+            ->where('id', $id)
+            ->get()->first();
         $categories = Category::all();
         $tags = $post->tags->map( function($tag){return $tag->title;});
         $tagnames = implode(", ",$tags->toArray());

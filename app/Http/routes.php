@@ -28,6 +28,9 @@ Route::group(['prefix' => 'lb-admin','middleware' => ['auth']], function () {
     Route::resource('post','PostController');
     Route::resource('category','Admin\CategoryController');
     Route::resource('tag','Admin\TagController');
+    Route::get('comment/approve/{comment}', 'CommentController@approve')->name('approvecomment');
+    Route::get('comment/reject/{comment}', 'CommentController@destroy')->name('rejectcomment');
+    Route::resource('comment','CommentController');
 
 });
 
