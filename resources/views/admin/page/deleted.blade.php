@@ -16,43 +16,23 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading clearfix">
-                        Deleted posts
+                        Deleted pages
                     </div>
 
                     <div class="panel-body">
                         <table class="table table-striped table-responsive">
                             <thead>
                             <th>Title</th>
-                            <th>Author</th>
-                            <th>Categories</th>
-                            <th>Tags</th>
-                            <th><i class="fa fa-comment-o" aria-hidden="true"></i></th>
                             <th>Deleted</th>
                             <th>Restore</th>
                             </thead>
                             <tbody>
-                            @foreach($posts as $post)
+                            @foreach($pages as $page)
                                 <tr>
-                                    <td><a href="{{route('lb-admin.post.edit', [$post->id]) }}">{{$post->title}}</a></td>
-                                    <td>{{$post->author->name}}</td>
+                                    <td><a href="{{route('lb-admin.page.edit', [$page->id]) }}">{{$page->title}}</a></td>
+                                    <td>{{$page->deleted_at}}</td>
                                     <td>
-                                        @foreach($post->categories as $category)
-                                            {{$category->title}}
-                                            {{Helper::appendComma($post->categories,$category)}}
-                                        @endforeach
-                                    </td>
-                                    <td>
-                                        @foreach($post->tags as $tag)
-                                            {{$tag->title}}
-                                            {{Helper::appendComma($post->tags,$tag)}}
-
-                                        @endforeach
-                                    </td>
-                                    <td>{{$post->comments->count()}}</td>
-                                    <td>{{$post->deleted_at}}</td>
-                                    <td>
-
-                                        <a href="{{ route('restorepost', [$post->id]) }}" class="confirmable"
+                                        <a href="{{ route('restorepage', [$page->id]) }}" class="confirmable"
                                            data-confirm-title="{{ trans('strings.confirm_title') }}"
                                            data-confirm-message="{{ trans('strings.confirm_restore') }}"
                                            data-confirm-ok="{{ trans('strings.restore') }}"

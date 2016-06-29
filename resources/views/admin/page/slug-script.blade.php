@@ -3,7 +3,7 @@ var currentSlugRequest = null;
 $("#post-title").on('keyup', function() {
     if (this.value.length > 0) {
         currentSlugRequest = $.ajax({
-                url : '{{route("postslug")}}',
+                url : '{{route("pageslug")}}',
                 type: 'POST',
                 dataType : "json",
                 data: {title: this.value},

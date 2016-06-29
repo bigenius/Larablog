@@ -47,6 +47,9 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/') }}">Home</a></li>
+                    @foreach( \App\Helpers\Helper::getMenu('Menu1') as $item)
+                        <li><a href="{{ url($item->slug) }}">{{ $item->title  }}</a></li>
+                    @endforeach
                 </ul>
 
                 <!-- Right Side Of Navbar -->
