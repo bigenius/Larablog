@@ -16,6 +16,7 @@ class MenuPage extends Migration
         {
             $table->integer('menu_id');
             $table->integer('page_id');
+            $table->integer('weight');
         });
     }
 

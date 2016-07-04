@@ -8092,4 +8092,27 @@ aside .well {
   border-left: 0;
   border-right: 0; }
 
+.menu-edit .panel-heading + .list-group .list-group-item:first-child {
+  border-top-width: 1px; }
+
+.menu-edit .panel > .list-group:last-child .list-group-item:last-child, .menu-edit .panel > .panel-collapse > .list-group:last-child .list-group-item:last-child {
+  border-bottom: 1px solid #ddd !important; }
+
+.menu-edit .panel > .list-group .list-group-item, .menu-edit .panel > .panel-collapse > .list-group .list-group-item {
+  border-right-width: 1px;
+  border-left-width: 1px;
+  border-bottom-width: 1px !important; }
+
+.menu-edit .handle {
+  cursor: move;
+  cursor: -webkit-grabbing;
+  line-height: 20px; }
+
+.menu-edit .list-group-item {
+  margin-bottom: 2px; }
+
+.menu-edit .ghost {
+  opacity: .5;
+  background: #eee; }
+
 /*# sourceMappingURL=app.css.map */

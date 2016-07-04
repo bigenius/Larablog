@@ -16,22 +16,22 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading clearfix">
-                        Tags
-                        <a class="btn btn-success btn-sm btn-create pull-right" href="{{route('lb-admin.tag.create')}}">New</a><br>
+                        Menus
+                        <a class="btn btn-success btn-sm btn-create pull-right" href="{{route('lb-admin.menu.create')}}">New</a><br>
                     </div>
 
                     <div class="panel-body">
                         <table class="table table-striped table-responsive">
                             <thead>
                             <th>Title</th>
-                            <th>Posts</th>
+                            <th>Pages</th>
                             </thead>
                             <tbody>
-                            @foreach($tags as $tag)
+                            @foreach($menus as $menu)
                                 <tr>
-                                    <td><a href="{{route('lb-admin.tag.edit', [$tag->id]) }}">{{$tag->title}}</a></td>
+                                    <td><a href="{{route('lb-admin.menu.edit', [$menu->id]) }}">{{$menu->title}}</a></td>
                                     <td>
-                                        <a href="{{route('lb-admin.tag.show', [$tag->id]) }}">{{$tag->posts()->count()}}</a>
+                                        {{$menu->pages()->count()}}
                                     </td>
                                 </tr>
                             @endforeach

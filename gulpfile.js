@@ -16,7 +16,7 @@ elixir(function(mix) {
         .styles(['app.css','highlight.css','bootstrap-datetimepicker.min.css'],'public/css/app.css');
 
 
-    mix.scripts(['jquery.min.js','bootstrap.min.js','highlight.min.js','moment.min.js','moment-sv.js','bootstrap-datetimepicker.min.js','lb-admin.js']);
+    mix.scripts(['jquery.min.js','bootstrap.min.js','highlight.min.js','moment.min.js','moment-sv.js','bootstrap-datetimepicker.min.js','lb-admin.js','Sortable.min.js']);
 
     mix.version(["css/app.css","js/all.js"]);
 

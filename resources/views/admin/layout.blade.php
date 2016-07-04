@@ -51,6 +51,7 @@
                     <li><a href="{{ url('/lb-admin/tag') }}">Tags</a></li>
                     <li><a href="{{ url('/lb-admin/comment') }}">Comments</a></li>
                     <li><a href="{{ url('/lb-admin/page') }}">Pages</a></li>
+                    <li><a href="{{ url('/lb-admin/menu') }}">Menus</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
