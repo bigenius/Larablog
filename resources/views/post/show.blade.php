@@ -1,5 +1,10 @@
 @extends('layouts.app')
+@push('scripts')
 
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+@endpush
 @section('content')
     <div class="container">
         <div class="row">
