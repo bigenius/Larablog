@@ -1,4 +1,6 @@
 @extends('layouts.app')
+
+@section('body-class'){{ 'post-show' }}@endsection
 @push('scripts')
 
 <script>
@@ -8,7 +10,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12 ">
                 <article id="article-{{$post->id}}">
                     <h2 class="post-title">{{$post->title}}</h2>
                     <div class="post-body">
@@ -27,6 +29,7 @@
                         </ul>
                     </div>
                 </article>
+                @include('comment.show')
             </div>
         </div>
     </div>

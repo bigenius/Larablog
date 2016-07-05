@@ -14,6 +14,7 @@ class AddNamesAndApproveToComments extends Migration
     {
         Schema::table('comments', function (Blueprint $table) {
             $table -> text('author_name');
+            $table -> text('author_email_hash');
             $table->boolean('approved')->default(0);
         });
     }
@@ -27,6 +28,7 @@ class AddNamesAndApproveToComments extends Migration
     {
         Schema::table('comments', function (Blueprint $table) {
             $table->dropColumn('author_name');
+            $table->dropColumn('author_email_hash');
             $table->dropColumn('approved');
         });
     }

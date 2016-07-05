@@ -9,6 +9,7 @@ $border-radius-large: 0;
 @import "variables";
 @import "bootswatch";
 
+@import "spinner";
 pre {
   padding:0;
 }
@@ -62,3 +63,19 @@ aside {
   }
 }
 
+.post-show {
+  article {
+    border-bottom: 1px solid $table-border-color;
+  }
+}
+.comments-container {
+  max-width: 400px;
+
+  #comments {
+    position: relative;
+    min-height:100px;
+  }
+  li.comment {
+    display: none;
+  }
+}

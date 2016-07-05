@@ -38,7 +38,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //md5( strtolower( trim( "email" ) ) );
     }
 
     /**

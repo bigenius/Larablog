@@ -198,4 +198,8 @@ class PostController extends Controller
         Post::onlyTrashed()->where('id', $id)->restore();
         return redirect()->route('lb-admin.post.index')->with(['info' => 'Post restored!', 'status' => 'success' ]);
     }
+
+    public function comments($year,$month,$slug) {
+        
+    }
 }
