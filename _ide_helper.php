@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.2.36 on 2016-06-17.
+ * Generated for Laravel 5.2.36 on 2016-07-06.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -11665,6 +11665,65 @@ namespace {
          */
         public static function cache($callback, $lifetime = null, $returnObj = false){
             return \Intervention\Image\ImageManager::cache($callback, $lifetime, $returnObj);
+        }
+        
+    }
+
+
+    class ResponseCache extends \Spatie\ResponseCache\ResponseCacheFacade{
+        
+        /**
+         * Determine if the given request should be cached.
+         *
+         * @param \Illuminate\Http\Request $request
+         * @param \Symfony\Component\HttpFoundation\Response $response
+         * @return bool 
+         * @static 
+         */
+        public static function shouldCache($request, $response){
+            return \Spatie\ResponseCache\ResponseCache::shouldCache($request, $response);
+        }
+        
+        /**
+         * Store the given response in the cache.
+         *
+         * @param \Illuminate\Http\Request $request
+         * @param \Symfony\Component\HttpFoundation\Response $response
+         * @static 
+         */
+        public static function cacheResponse($request, $response){
+            return \Spatie\ResponseCache\ResponseCache::cacheResponse($request, $response);
+        }
+        
+        /**
+         * Determine if the given request has been cached.
+         *
+         * @param \Illuminate\Http\Request $request
+         * @return bool 
+         * @static 
+         */
+        public static function hasCached($request){
+            return \Spatie\ResponseCache\ResponseCache::hasCached($request);
+        }
+        
+        /**
+         * Get the cached response for the given request.
+         *
+         * @param \Illuminate\Http\Request $request
+         * @return \Symfony\Component\HttpFoundation\Response 
+         * @static 
+         */
+        public static function getCachedResponseFor($request){
+            return \Spatie\ResponseCache\ResponseCache::getCachedResponseFor($request);
+        }
+        
+        /**
+         * Flush the cache.
+         *
+         * @static 
+         */
+        public static function flush(){
+            return \Spatie\ResponseCache\ResponseCache::flush();
         }
         
     }

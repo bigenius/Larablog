@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Comment;
@@ -36,9 +37,26 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         //md5( strtolower( trim( "email" ) ) );
+        $this->validate($request, [
+            'author_email' => 'required|email',
+            'author_name' => 'required|alpha_dash',
+            'body' => 'required|string',
+            'g-recaptcha-response' => 'required|recaptcha',
+        ]);
+        
+
+
+        $comment = new Comment();
+        $comment->author_email = $request->author_email;
+        $comment->author_name = $request->author_name;
+        $comment->body = $request->body;
+        $comment->author_email_hash = md5( strtolower( trim( $request->author_email ) ) );
+        $post = Post::find($id);
+        $post->comments()->save($comment);
+        return response()->json(['status' => 'Comment saved']);
     }
 
     /**

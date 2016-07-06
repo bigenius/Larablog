@@ -8084,7 +8084,8 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
   top: 0;
   left: 0;
   bottom: 0;
-  right: 0; }
+  right: 0;
+  display: none; }
 
 /* Transparent Overlay */
 .spinner:before {
@@ -8177,5 +8178,10 @@ aside .well {
     min-height: 100px; }
   .comments-container li.comment {
     display: none; }
+  .comments-container #rc-imageselect, .comments-container .g-recaptcha {
+    transform: scale(0.77);
+    -webkit-transform: scale(0.77);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0; }
 
 /*# sourceMappingURL=app.css.map */

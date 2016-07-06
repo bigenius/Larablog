@@ -110,7 +110,9 @@ return [
     */
 
     'attributes'           => [
-        //
+        'author_email'  => 'epost',
+        'author_name'   => 'namn',
+        'body'          =>  'kommentar'
     ],
 
 ];

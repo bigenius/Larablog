@@ -167,6 +167,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Spatie\ResponseCache\ResponseCacheServiceProvider::class,
+        Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
     ],
 
     /*
@@ -217,6 +218,7 @@ return [
         'Purifier' => Mews\Purifier\Facades\Purifier::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'ResponseCache' => Spatie\ResponseCache\ResponseCacheFacade::class,
+        'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class,
     ],
 
 ];

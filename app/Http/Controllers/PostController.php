@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Post;
 use App\Tag;
+use Illuminate\Support\Collection;
 use Symfony\Component\Debug\Debug;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Carbon\Carbon;
@@ -26,9 +27,8 @@ class PostController extends Controller
                               ELSE  published_at
                             END 
                             DESC";
-        //$posts = Post::orderBy('created_at', 'desc')->get();
-        $posts = Post::orderByRaw($custom_order_by)->get();
 
+        $posts = Post::orderByRaw($custom_order_by)->get();
         return view('admin.post.list', ['posts' => $posts]);
     }
 

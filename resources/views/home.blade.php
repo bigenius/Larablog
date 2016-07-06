@@ -37,7 +37,9 @@
     </div>
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            {!! $posts->links() !!}
+            @if(count($posts))
+                {!! $posts->links() !!}
+            @endif
         </div>
     </div>
 </div>

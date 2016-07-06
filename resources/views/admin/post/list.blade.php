@@ -31,7 +31,7 @@
                             <th>Date</th>
                             </thead>
                             <tbody>
-                            @foreach($posts as $post)
+                            @forelse($posts as $post)
                                 <tr>
                                     <td><a href="{{route('lb-admin.post.edit', [$post->id]) }}">{{$post->title}}</a></td>
                                     <td>{{$post->author->name}}</td>
@@ -51,7 +51,9 @@
                                     <td>{{$post->comments->count()}}</td>
                                     <td>{{$post->getLatestDate()}}<br><span class="text-muted small"><em>{{ trans('strings.'.$post->date_type) }} </em></span></td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr><td colspan="6">No posts</td></tr>
+                            @endforelse
                             </tbody>
                         </table>
                     </div>

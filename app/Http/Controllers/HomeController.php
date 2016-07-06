@@ -6,6 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Post;
 use Carbon\Carbon;
+use phpDocumentor\Reflection\DocBlock\Type\Collection;
 
 class HomeController extends Controller
 {
