@@ -66,6 +66,6 @@ Route::get('{slug}', 'PageController@show')->where('slug', '[a-z0-9]+(?:-[a-z0-9
 
 // Comments
 Route::get('comments/{post}', function(App\Post $post){
-    return $post->comments;
+    return $post->publicComments()->get();
 })->name('comments');
 Route::post('comment/{post}', 'CommentController@store')->name('postcomment');

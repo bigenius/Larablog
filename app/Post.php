@@ -73,6 +73,9 @@ class Post extends Model
 
     }
 
+    public function publicComments() {
+        return $this->hasMany('App\Comment')->where('approved', 1);
+    }
 
     public function sluggable()
     {
