@@ -24,7 +24,7 @@
         }
     </style>
 </head>
-<body id="app-layout" class="@yield('body-class', '')">
+<body id="app-layout" class="admin @yield('body-class', '')">
     <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -49,7 +49,7 @@
                     <li><a href="{{ url('/lb-admin/post') }}">Posts</a></li>
                     <li><a href="{{ url('/lb-admin/category') }}">Categories</a></li>
                     <li><a href="{{ url('/lb-admin/tag') }}">Tags</a></li>
-                    <li><a href="{{ url('/lb-admin/comment') }}">Comments</a></li>
+                    <li><a href="{{ url('/lb-admin/comment') }}">Comments<span class="badge" id="nrcomments"></span></a></li>
                     <li><a href="{{ url('/lb-admin/page') }}">Pages</a></li>
                     <li><a href="{{ url('/lb-admin/menu') }}">Menus</a></li>
                 </ul>
@@ -75,6 +75,39 @@
     @yield('content')
 
     <script src="{{ elixir('js/all.js') }}"></script>
+    <script>
+        $(document).ready( function() {
+
+            checkComments();
+            setInterval(function () {
+                checkComments();
+            }, 5000);
+
+        });
+        var checkComments = function() {
+            $.ajax({
+                url : '{{route("unapprovedComments")}}',
+                type: 'GET',
+                dataType : "json",
+            })
+                    .done(function(data){
+                        if (data > 0 && $.isNumeric(data)) {
+                            $('#nrcomments').html(data);
+                        } else {
+                            $('#nrcomments').html('');
+                        }
+                    })
+                    .fail( function(data, status){
+                        if (status !== 'abort') {
+                            console.log('Error:', data);
+                        }
+
+                    })
+                    .always( function(){
+
+                    });
+        }
+    </script>
     @stack('scripts')
 </body>
 </html>
