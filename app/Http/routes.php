@@ -56,6 +56,9 @@ Route::group(['prefix' => 'lb-admin','middleware' => ['auth']], function () {
     // Comments
     Route::get('comment/approve/{comment}', 'CommentController@approve')->name('approvecomment');
     Route::get('comment/reject/{comment}', 'CommentController@destroy')->name('rejectcomment');
+    Route::get('comment/unapproved', function(App\Comment $comment) {
+        return $comment->where('approved', 0)->count();
+    });
     Route::resource('comment','CommentController');
 
 });
