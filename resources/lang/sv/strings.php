@@ -12,4 +12,8 @@ return [
     'save'              => 'Spara',
     'restore'           => 'Återställ',
     'confirm_restore'   => 'Är det säkert att du vill återställa objektet? <br>Om det är publicerat kommer det att synas omedelbart.',
+    'enter_new_pass'    => 'Ange nytt lösenord',
+    'password'          => 'Lösenord',
+    'repeat_password'   => 'Upprepa lösenord',
+    'password_mismatch' => 'Lösenorden stämmer inte överens',
 ];

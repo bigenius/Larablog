@@ -62,8 +62,10 @@ Route::group(['prefix' => 'lb-admin','middleware' => ['auth']], function () {
     Route::resource('comment','CommentController');
 
     // Users
-    Route::get('user/pass','UserController@changePass');
-    Route::post('user/pass','UserController@changePass');
+    Route::get('user/pass','UserController@changePass')->name('changepass');
+    Route::post('user/pass','UserController@updatePassword')->name('changepass');
+    Route::get('user/deleted', 'UserController@deleted')->name('deletedusers');
+    Route::get('user/deleted/{id}', 'UserController@restore')->name('restoreuser');
     Route::resource('user','UserController');
 
 });

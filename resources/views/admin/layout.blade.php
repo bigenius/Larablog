@@ -52,6 +52,7 @@
                     <li><a href="{{ url('/lb-admin/comment') }}">Comments<span class="badge" id="nrcomments"></span></a></li>
                     <li><a href="{{ url('/lb-admin/page') }}">Pages</a></li>
                     <li><a href="{{ url('/lb-admin/menu') }}">Menus</a></li>
+                    <li><a href="{{ url('/lb-admin/user') }}">Users</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -63,6 +64,7 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ route('changepass') }}"><i class="fa fa-btn fa-user"></i>Profile</a></li>
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                         </ul>
                     </li>
