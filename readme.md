@@ -12,7 +12,7 @@
 * php artisan db:seed
 * gulp
 
-The seeder will create an admin user: **admin@example.com** with the password: **admin**, as well as create some initial content (post, page, menu, categoris and tags).
+The seeder will create an admin user: **admin@example.com** with the password: **admin**, as well as create some initial content (post, page, menu, categories and tags).
 
 ## License
 
