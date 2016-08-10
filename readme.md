@@ -6,7 +6,8 @@
 
 * composer install
 * npm install
-* copy .env.example to .env, edit db-settings and Recaptcha-keys 
+* copy .env.example to .env
+* edit db-settings and Recaptcha-keys in .env 
 * php artisan key:generate
 * php artisan migrate
 * php artisan db:seed
