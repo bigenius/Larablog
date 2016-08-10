@@ -6,11 +6,14 @@
 
 * composer install
 * npm install
-* set up .env
+* copy .env.example to .env, edit db-settings and Recaptcha-keys 
 * php artisan key:generate
 * php artisan migrate
 * php artisan db:seed
 * gulp
+
+
+## Content
 
 The seeder will create an admin user: **admin@example.com** with the password: **admin**, as well as create some initial content (post, page, menu, categories and tags).
 
