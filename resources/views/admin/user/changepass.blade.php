@@ -20,9 +20,9 @@
                     <div class="panel-heading">{{trans('strings.enter_new_pass') }}</div>
                     <div class="panel-body">
                         <form class="form" role="form" method="POST"
-                              action="{{route('changepass')}}">
+                              action="{{route('updatepass')}}">
                             {!! csrf_field() !!}
-
+                            <input type="hidden" name="id" value="{{$id or old('id')}}">
 
                             <div class="row form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <label class="col-md-4 control-label">{{trans('strings.password') }}</label>

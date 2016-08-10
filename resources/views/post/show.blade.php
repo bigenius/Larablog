@@ -29,7 +29,7 @@
                         </ul>
                     </div>
                 </article>
-                @include('comment.show')
+                @include('comment.list')
             </div>
         </div>
     </div>

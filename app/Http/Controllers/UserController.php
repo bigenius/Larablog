@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -27,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-
+        return view('admin.user.create');
     }
 
     /**
@@ -39,11 +40,20 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|max:255',
-            'body' => 'required',
+            'name' => 'required|max:255',
+            'email' => 'required|email',
+            'password' => 'required|min:6|confirmed',
+        ], [
+            'confirmed' => trans('strings.password_mismatch')
         ]);
 
-
+        $user = new User([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+        $user->save();
+        return redirect()->route('lb-admin.user.index')->with(['info' => 'User created!', 'status' => 'success' ]);
     }
 
     /**
@@ -95,7 +105,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('lb-admin.user.index')->with(['info' => 'User deleted!', 'status' => 'success' ]);
     }
 
 
@@ -107,12 +119,13 @@ class UserController extends Controller
 
     public function restore($id)
     {
-
+        User::onlyTrashed()->where('id', $id)->restore();
+        return redirect()->route('lb-admin.user.index')->with(['info' => 'User restored!', 'status' => 'success' ]);
     }
 
-    public function changePass()
+    public function getPass($id = false)
     {
-        return view('admin.user.changepass');
+        return view('admin.user.changepass', compact('id'));
     }
     public function updatePassword(Request $request)
     {
@@ -122,7 +135,17 @@ class UserController extends Controller
             'confirmed' => trans('strings.password_mismatch')
         ]);
 
+        if( $request->has('id') ) {
+            $user = User::findOrFail($request->id);
+        } else {
+            $user = Auth::user();
+        }
+        $user->password = bcrypt($request->password);
+        $user->save();
+        return redirect()->back()->with(['info' => 'Password updated!', 'status' => 'success' ]);
     }
+
+
 
 
 

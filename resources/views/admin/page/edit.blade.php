@@ -90,7 +90,7 @@
 
 
                                         <div class="row form-group ">
-                                            <div class="col-md-12  well well-sm">
+                                            <div class="col-md-12 clearfix well well-sm">
                                                 <button type="submit" class="btn btn-primary pull-right">
                                                     <i class="fa fa-btn fa-check"></i>{{ trans('strings.save') }}
                                                 </button>

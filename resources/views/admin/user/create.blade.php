@@ -20,21 +20,20 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Edit user</div>
+                    <div class="panel-heading">New user</div>
                     <div class="panel-body">
                         <form class="form" role="form" method="POST"
-                              action="{{route('lb-admin.user.update', $user->id)}}">
+                              action="{{route('lb-admin.user.store')}}">
                             {!! csrf_field() !!}
 
-                            <input type="hidden" name="_method" value="PUT">
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="row form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                        <label class="col-md-12 control-label">Name</label>
+                                        <label class="col-md-4 control-label">Name</label>
 
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <input id="post-title" type="text" class="form-control" name="name"
-                                                   value="{{ $user->name }}">
+                                                   value="{{ old('name') }}">
 
                                             @if ($errors->has('name'))
                                                 <span class="help-block">
@@ -45,11 +44,11 @@
                                     </div>
 
                                     <div class="row form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                        <label class="col-md-12 control-label">Email</label>
+                                        <label class="col-md-4 control-label">Email</label>
 
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
 
-                                            <input class="form-control" name="email" value="{{ $user->email }}">
+                                            <input class="form-control" name="email" value="{{ old('email') }}">
                                             @if ($errors->has('email'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('email') }}</strong>
@@ -58,15 +57,35 @@
                                         </div>
                                     </div>
 
-                                    <div class="row form-group">
-                                        <div class="col-md-6">
-                                            <a href="{{ route('changepass', [$user->id]) }}" class="changepass">Change Password
-                                            </a>
-                                        </div>
-                                        <div class="col-md-6">
+                                    <div class="row form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                        <label class="col-md-4 control-label">{{trans('strings.password') }}</label>
 
+                                        <div class="col-md-6">
+                                            <input type="password" class="form-control" name="password">
+
+                                            @if ($errors->has('password'))
+                                                <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                            @endif
                                         </div>
                                     </div>
+
+                                    <div class="row form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                        <label class="col-md-4 control-label">{{trans('strings.repeat_password') }}</label>
+
+                                        <div class="col-md-6">
+                                            <input type="password" class="form-control" name="password_confirmation">
+
+                                            @if ($errors->has('password'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
+
+
                                 </div>
                                 <aside class="col-md-3">
                                     <div class="">
@@ -75,27 +94,7 @@
                                                 <button type="submit" class="btn btn-primary pull-right">
                                                     <i class="fa fa-btn fa-check"></i>{{ trans('strings.save') }}
                                                 </button>
-                                                @if ($user->trashed())
-                                                    <a href="{{ route('restoreuser', [$user->id]) }}" class="btn btn-danger pull-left confirmable"
-                                                       data-confirm-title="{{ trans('strings.confirm_title') }}"
-                                                       data-confirm-message="{{ trans('strings.confirm_restore') }}"
-                                                       data-confirm-ok="{{ trans('strings.restore') }}"
-                                                       data-confirm-cancel="{{ trans('strings.confirm_cancel') }}"
-                                                       data-confirm-style="danger">
-                                                        <i class="fa fa-btn fa-trash"></i>{{ trans('strings.restore') }}
-                                                    </a>
 
-                                                @else
-
-                                                    <a href="{{ route('destroyuser', [$user->id]) }}" class="btn btn-danger pull-left confirmable"
-                                                       data-confirm-title="{{ trans('strings.confirm_title') }}"
-                                                       data-confirm-message="{{ trans('strings.confirm_delete') }}"
-                                                       data-confirm-ok="{{ trans('strings.delete') }}"
-                                                       data-confirm-cancel="{{ trans('strings.confirm_cancel') }}"
-                                                       data-confirm-style="danger">
-                                                        <i class="fa fa-btn fa-trash"></i>{{ trans('strings.delete') }}
-                                                    </a>
-                                                @endif
                                             </div>
                                         </div>
                                     </div>
