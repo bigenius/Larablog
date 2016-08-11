@@ -58,15 +58,17 @@
                                         </div>
                                     </div>
 
-                                    <div class="row form-group">
-                                        <div class="col-md-6">
-                                            <a href="{{ route('changepass', [$user->id]) }}" class="changepass">Change Password
-                                            </a>
-                                        </div>
-                                        <div class="col-md-6">
+                                    @unless( $user->trashed())
+                                        <div class="row form-group">
+                                            <div class="col-md-6">
+                                                <a href="{{ route('changepass', [$user->id]) }}" class="changepass">Change Password
+                                                </a>
+                                            </div>
+                                            <div class="col-md-6">
 
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endunless
                                 </div>
                                 <aside class="col-md-3">
                                     <div class="">

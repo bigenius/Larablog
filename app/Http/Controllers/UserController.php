@@ -125,7 +125,12 @@ class UserController extends Controller
 
     public function getPass($id = false)
     {
-        return view('admin.user.changepass', compact('id'));
+        if($id) {
+            $user = User::findOrFail($id);
+        } else {
+            $user = Auth::user();
+        }
+        return view('admin.user.changepass', compact('user'));
     }
     public function updatePassword(Request $request)
     {

@@ -33,7 +33,7 @@
                             <tbody>
                             @forelse($posts as $post)
                                 <tr>
-                                    <td><a href="{{route('lb-admin.post.edit', [$post->id]) }}">{{$post->title}}</a></td>
+                                    <td><a href="{{route('lb-admin.post.edit', [$post->id])  }}">{{$post->title}}</a></td>
                                     <td>{{$post->author->name}}</td>
                                     <td>
                                         @foreach($post->categories as $category)

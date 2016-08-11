@@ -47,6 +47,7 @@
     }
     var fetchComments = function() {
         $(".spinner").show();
+        $("#commentlist").empty();
         $.ajax({
             url : '{{route("comments",$post->id)}}',
             type: 'GET',

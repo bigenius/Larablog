@@ -17,12 +17,12 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">{{trans('strings.enter_new_pass') }}</div>
+                    <div class="panel-heading">{{trans('strings.enter_new_pass', ['name' => $user->name]) }}</div>
                     <div class="panel-body">
                         <form class="form" role="form" method="POST"
                               action="{{route('updatepass')}}">
                             {!! csrf_field() !!}
-                            <input type="hidden" name="id" value="{{$id or old('id')}}">
+                            <input type="hidden" name="id" value="{{$user->id or old('id')}}">
 
                             <div class="row form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <label class="col-md-4 control-label">{{trans('strings.password') }}</label>
