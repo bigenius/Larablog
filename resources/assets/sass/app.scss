@@ -10,6 +10,11 @@ $border-radius-large: 0;
 @import "bootswatch";
 
 @import "spinner";
+
+body {
+  font-family: Lato, Calibri, Candara, Arial, sans-serif;
+}
+
 pre {
   padding:0;
 }
@@ -68,6 +73,18 @@ aside {
     border-bottom: 1px solid $table-border-color;
   }
 }
+
+article {
+  .post-body {
+    p {
+      img {
+        max-width: 100%!important;
+        height: auto!important;
+        display: block;
+      }
+    }
+  }
+}
 .comments-container {
   max-width: 400px;
 
@@ -89,4 +106,8 @@ aside {
     left: -2px;
     padding: 1px 5px;
   }
+}
+
+.fa-btn {
+  margin-right: 6px;
 }

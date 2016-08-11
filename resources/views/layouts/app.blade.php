@@ -7,22 +7,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Laravel</title>
 
-    <!-- Fonts -->
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:100,300,400,700">
-
     <!-- Styles -->
     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
-        }
 
-        .fa-btn {
-            margin-right: 6px;
-        }
-    </style>
 </head>
 <body id="app-layout" class="@yield('body-class', '')">
 <nav class="navbar navbar-default navbar-static-top">
@@ -39,7 +27,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    danne.nu
                 </a>
             </div>
 

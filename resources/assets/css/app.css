@@ -5,7 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700");
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -8123,6 +8123,9 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
   100% {
     transform: rotate(360deg); } }
 
+body {
+  font-family: Lato, Calibri, Candara, Arial, sans-serif; }
+
 pre {
   padding: 0; }
 
@@ -8168,6 +8171,11 @@ aside .well {
 .post-show article {
   border-bottom: 1px solid #ddd; }
 
+article .post-body p img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block; }
+
 .comments-container {
   max-width: 400px; }
   .comments-container #comments {
@@ -8186,5 +8194,8 @@ aside .well {
   top: -9px;
   left: -2px;
   padding: 1px 5px; }
+
+.fa-btn {
+  margin-right: 6px; }
 
 /*# sourceMappingURL=app.css.map */
