@@ -20,4 +20,8 @@ class Helper
     public static function getMenu($name) {
         return Menu::where('title',$name)->first()->weightedpages;
     }
+
+    public static function fancyDate($date) {
+         return ($date->diffInDays( \Carbon\Carbon::now()) >= 2 ? $date->format('Y m d') : $date->diffForHumans());
+    }
 }

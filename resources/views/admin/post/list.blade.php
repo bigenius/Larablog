@@ -34,7 +34,7 @@
                             @forelse($posts as $post)
                                 <tr>
                                     <td><a href="{{route('lb-admin.post.edit', [$post->id])  }}">{{$post->title}}</a></td>
-                                    <td>{{$post->author->name}}</td>
+                                    <td>{{$post->author()->withTrashed()->first()->name}}</td>
                                     <td>
                                         @foreach($post->categories as $category)
                                             {{$category->title}}
