@@ -20,7 +20,7 @@
                         <a class="btn btn-success btn-sm btn-create pull-right" href="{{route('lb-admin.tag.create')}}">New</a><br>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="panel-body table-responsive">
                         <table class="table table-striped table-responsive">
                             <thead>
                             <th>Title</th>

@@ -22,6 +22,6 @@ class Helper
     }
 
     public static function fancyDate($date) {
-         return ($date->diffInDays( \Carbon\Carbon::now()) >= 2 ? $date->format('Y m d') : $date->diffForHumans());
+         return ($date->diffInDays( \Carbon\Carbon::now()) >= 2 ? $date->format('Y-m-d') : $date->diffForHumans());
     }
 }

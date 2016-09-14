@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Symfony\Component\Debug\Debug;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use App\Helpers;
 
 class Post extends Model
 {
@@ -62,13 +62,13 @@ class Post extends Model
         if($max->count() < 2) {
             $created = Carbon::createFromTimestamp( $max->first()['date'] );
             $this->date_type = 'updated_at';
-            return  ($created->diff($now)->days < 2 ? $created->diffForHumans() : $created) ;
+            return  ($created->diff($now)->days < 2 ? $created->diffForHumans() : $created->format('Y-m-d')) ;
         } else {
 
             $created = Carbon::createFromTimestamp( $max->where('name','published_at')->first()['date'] );
 
             $this->date_type = ($created >  $now ? 'updated_at': 'published_at');
-            return Carbon::createFromTimestamp( $max->where('name','published_at')->first()['date'] )->diffForHumans();
+            return \App\Helpers\Helper::fancyDate( Carbon::createFromTimestamp( $max->where('name','published_at')->first()['date'] ));
         }
 
     }

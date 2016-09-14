@@ -19,7 +19,7 @@
                         Comments
                     </div>
 
-                    <div class="panel-body">
+                    <div class="panel-body table-responsive">
                         <table class="table table-striped table-responsive">
                             <thead>
                             <th>Comment</th>
