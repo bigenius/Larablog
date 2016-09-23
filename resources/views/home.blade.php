@@ -19,7 +19,7 @@
                 </div>
                 <div class="post-meta">
                     <ul class="list-inline">
-                        <li class="cp-date-single"><span class="fa fa-clock-o"></span>{{\App\Helpers\Helper::fancyDate($post->updated_at)}}</li>
+                        <li class="cp-date-single"><span class="fa fa-clock-o"></span>{{\App\Helpers\Helper::fancyDate($post->published_at)}}</li>
                         <li class="category"><span class="fa fa-folder-o"></span>
                             @foreach($post->categories as $category)
                                 <a href="cat/{{$category->title}}">{{$category->title}}</a>
