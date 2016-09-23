@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Tag;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Post;
@@ -29,6 +31,8 @@ class HomeController extends Controller
     {
 
         $posts = Post::whereNotNull('published_at')->orderBy('published_at', 'desc')->simplePaginate(15);
-        return view('home', ['posts' => $posts]);
+        $categories = Category::has('posts')->get();
+        $tags = Tag::has('posts')->get();
+        return view('home', compact('posts', 'categories','tags'));
     }
 }

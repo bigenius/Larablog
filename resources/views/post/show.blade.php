@@ -21,7 +21,7 @@
                             <li class="cp-date-single"><span class="fa fa-clock-o"></span>{{\App\Helpers\Helper::fancyDate($post->published_at)}}</li>
                             <li class="category"><span class="fa fa-folder-o"></span>
                                 @foreach($post->categories as $category)
-                                    <a href="cat/{{$category->title}}">{{$category->title}}</a>
+                                    <a href="{{ url('category',$category->slug)}}">{{$category->title}}</a>
                                     {{Helper::appendComma($post->categories,$category)}}
                                 @endforeach
                             </li>

@@ -7,9 +7,9 @@
 @endpush
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-10 clearfix">
 
         @foreach( $posts as $post)
             <article id="article-{{$post->id}}">
@@ -22,7 +22,7 @@
                         <li class="cp-date-single"><span class="fa fa-clock-o"></span>{{\App\Helpers\Helper::fancyDate($post->published_at)}}</li>
                         <li class="category"><span class="fa fa-folder-o"></span>
                             @foreach($post->categories as $category)
-                                <a href="cat/{{$category->title}}">{{$category->title}}</a>
+                                <a href="{{ url('category',$category->slug)}}">{{$category->title}}</a>
                                 {{Helper::appendComma($post->categories,$category)}}
                             @endforeach
                         </li>
@@ -33,6 +33,10 @@
         @endforeach
 
 
+        </div>
+        <div class="col-md-2">
+            @include('common.categories')
+            @include('common.tags')
         </div>
     </div>
     <div class="row">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Tag;
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
@@ -99,4 +100,15 @@ class TagController extends Controller
     {
         //
     }
+
+    public function showBySlug($slug)
+    {
+        $tag = Tag::where('slug',$slug)->firstOrFail();
+        $categories = Category::has('posts')->get();
+        $posts = $tag->posts()->whereNotNull('published_at')->orderBy('published_at', 'desc')->simplePaginate(15);
+
+        return view('tag.show', compact('posts', 'categories','tag'));
+
+    }
+
 }

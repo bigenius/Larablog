@@ -72,6 +72,10 @@ Route::group(['prefix' => 'lb-admin','middleware' => ['auth']], function () {
 
 });
 
+// Tag and category slugs
+Route::get('tag/{slug}','Admin\TagController@showBySlug');
+Route::get('category/{slug}','Admin\CategoryController@showBySlug');
+
 // Post and page slugs
 Route::get('{year}/{month}/{slug}', 'PostController@show')->where('year', '[0-9]+')->where('month', '[0-9]+');
 Route::get('{slug}', 'PageController@show')->where('slug', '[a-z0-9]+(?:-[a-z0-9]+)*$');

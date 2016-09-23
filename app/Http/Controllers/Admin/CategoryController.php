@@ -99,4 +99,14 @@ class CategoryController extends Controller
     {
         //
     }
+
+    public function showBySlug($slug)
+    {
+        $category = Category::where('slug',$slug)->firstOrFail();
+        $categories = Category::has('posts')->get();
+        $posts = $category->posts()->whereNotNull('published_at')->orderBy('published_at', 'desc')->simplePaginate(15);
+
+        return view('category.show', compact('posts', 'categories','category'));
+
+    }
 }
