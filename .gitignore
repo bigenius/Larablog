@@ -15,3 +15,7 @@ public/js
 public/upload/images
 public/upload/files
 resources/assets/css/app.css*
+gc-credentials.json
+storage/glide/.cache
+public/packages
+public/upload/.tmb

@@ -163,11 +163,12 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Mews\Purifier\PurifierServiceProvider::class,
         Midium\Ckeditor\ServiceProvider::class,
-        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Spatie\ResponseCache\ResponseCacheServiceProvider::class,
         Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
+        Barryvdh\Elfinder\ElfinderServiceProvider::class,
+        Superbalist\LaravelGoogleCloudStorage\GoogleCloudStorageServiceProvider::class,
     ],
 
     /*

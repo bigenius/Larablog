@@ -12,10 +12,13 @@
         "cviebrock/eloquent-sluggable": "~4.0@dev",
         "mews/purifier": "^2.0",
         "midium/laravel-ckeditor": "dev-master",
-        "unisharp/laravel-filemanager": "^1.5",
         "predis/predis": "~1.0",
         "spatie/laravel-responsecache": "^1.1",
-        "greggilbert/recaptcha": "^2.1"
+        "greggilbert/recaptcha": "^2.1",
+        "barryvdh/laravel-elfinder": "^0.3.8",
+        "barryvdh/elfinder-flysystem-driver": "^0.2.0",
+        "league/glide-laravel": "^1.0",
+        "superbalist/laravel-google-cloud-storage": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

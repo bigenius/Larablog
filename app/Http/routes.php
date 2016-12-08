@@ -85,3 +85,8 @@ Route::get('comments/{post}', function(App\Post $post){
     return $post->publicComments()->get();
 })->name('comments');
 Route::post('comment/{post}', 'CommentController@store')->name('postcomment');
+
+
+Route::get('img/{path}', function(League\Glide\Server $server, Illuminate\Http\Request $request, $path){
+    $server->outputImage($path, $request->input());
+})->where('path', '.+');
